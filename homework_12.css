@@ -1,0 +1,62 @@
+body {
+   background-color: rgb(171, 199, 226);
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+#main-container {
+   padding: 10px;
+   border: 3px solid rgb(27, 25, 25);
+   width: 98.5%;
+   height: 100%;
+}
+
+#lists {
+   display: flex;
+   flex-direction: row;
+}
+
+#lists div {
+   margin-top: 10px;
+   padding: 10px;
+   border: 2px solid rgb(27, 25, 25);
+   /* width: 33%; */
+   height: 900px;
+}
+
+h2 {
+   text-align: center;
+}
+
+#userInput {
+   width: 76%;
+   height: 25px;
+}
+
+#btn-confirm {
+   width: 200px;
+   height: 30px;
+   background-color: rgb(167, 216, 167);
+   font-size: 15px;
+   font-weight: bold;
+}
+
+#btn-cancel {
+   width: 200px;
+   height: 30px;
+   background-color: rgb(231, 152, 152);
+   font-size: 15px;
+   font-weight: bold;
+}
+
+#toDoList {
+   margin-right: 10px;
+   width: 100%;
+}
+
+#toDoList, #doneList {
+   width: 50%;
+}
+
+#rejectedList {
+   margin-left: 10px;
+}

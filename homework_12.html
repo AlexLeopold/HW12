@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeWork_12</title>
+    <link rel="stylesheet" href="./homework_12.css" />
+    <script defer src="./homework_12.js"></script>
+  </head>
+  <body>
+    <div id="main-container">
+      <input type="text" name="" id="userInput" onkeydown="enterFunc(event)" />
+      <button id="btn-confirm">Confirm</button>
+      <button id="btn-cancel">Cancel</button>
+      <div id="lists">
+        <div id="toDoList">
+          <h2>To Do !</h2>
+          <ul id="first"></ul>
+        </div>
+        <script type="text/template" id="templateDone">
+          <div id="doneList">
+             <h2>Done &#10004;</h2>
+             <ul id="second"></ul>
+          </div>
+        </script>
+        <!-- <div id="rejectedList">
+               <h2>Rejected &#10007;</h2>
+               <ul id="third"></ul>
+            </div> -->
+      </div>
+    </div>
+  </body>
+</html>
