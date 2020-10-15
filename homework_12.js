@@ -1,5 +1,6 @@
 "use strict";
 
+let list = document.getElementById("lists");
 let input = document.getElementById("userInput");
 let toDo = document.getElementById("toDoList");
 let done = document.getElementById("doneList");
@@ -9,22 +10,22 @@ let cancel = document.getElementById("btn-cancel");
 let ulFirst = document.getElementById("first");
 let ulSecond = document.getElementById("second");
 let ulThird = document.getElementById("third");
-let checked = document.querySelectorAll("checked");
+let checked = document.querySelectorAll(".checked");
 let templDone = document.getElementById("templateDone");
 // let btn-reject = document.getElementById("reject");
 
 function confirmFunc() {
   if (input != "" && input != null) {
     const newLi = document.createElement("li");
-    newLi.innerHTML = `${input.value}<input type="checkbox" id="checkbox" /><button class="reject">&#10007;</button>
+    newLi.innerHTML = `${input.value}<input type="checkbox" onclick="this.parentNode.className += ' checked’” /><button class="reject">&#10007;</button>
     `;
     ulFirst.appendChild(newLi);
     document.getElementById("userInput").value = "";
   }
 }
 
-function enterFunc(event) {
-  var x = event.keyCode;
+function enterFunc(enter) {
+  var x = enter.keyCode;
   if (x == 13) {
     confirmFunc();
   }
@@ -36,11 +37,11 @@ cancel.addEventListener("click", () => {
   document.getElementById("userInput").value = "";
 });
 
-
-
-function transferToDone () {
-    
-}
+list.onclick = function transferToDone(event) {
+  let target = event.target;
+  if (target.className != checked) return;
+  target.appendChild(done);
+};
 
 // function transferToRejected () {
 
