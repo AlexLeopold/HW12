@@ -51,8 +51,10 @@ cancel.addEventListener("click", cancelFunc);
 list.onclick = function transferToDone(event) {
   let target = event.target;
   if (target.checked) {
-    listHTMl += templDoneHTML.replace("{{newLi}}", "this.li.closest");
-    document.getElementById(ulSecond).innerHTML = listHTMl;
-    //  document.ulSecond.appendChild(this.closest);
+    listHTMl += templDoneHTML.replace(
+      "{{newLi}}",
+      target.closest("li").innerHTML
+    );
+    list.innerHTML += listHTMl;
   }
 };
