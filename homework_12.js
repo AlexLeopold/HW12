@@ -11,18 +11,15 @@ let cancel = document.getElementById("btn-cancel");
 let ulFirst = document.getElementById("first");
 let ulSecond = document.getElementById("second");
 let ulThird = document.getElementById("third");
-let checked = document.getElementById("checkbox");
+let checkbox = document.getElementById("checkboxx");
 var templateDone = document.getElementById("templateDone");
 var templDoneHTML = templateDone.innerHTML;
 var listHTMl = "";
 
-console.log(templateDone);
-console.log(templDoneHTML);
-
 function confirmFunc() {
   if (input != "" && input != null) {
     const newLi = document.createElement("li");
-    newLi.innerHTML = `<label>${input.value}<input type="checkbox" id="checkbox"/><button class="reject">&#10007;</button>
+    newLi.innerHTML = `<label>${input.value}<input type="checkbox" id="checkboxx"/><button class="reject">&#10007;</button>
     </label>`;
     ulFirst.appendChild(newLi);
     document.getElementById("userInput").value = "";
@@ -50,11 +47,18 @@ cancel.addEventListener("click", cancelFunc);
 
 list.onclick = function transferToDone(event) {
   let target = event.target;
-  if (target.checked) {
+  let isChecked = target.checked;
+  if (isChecked) {
     listHTMl += templDoneHTML.replace(
       "{{newLi}}",
       target.closest("li").innerHTML
     );
+    ulFirst.removeChild(target.closest("li"));
+  }
+  if (!document.getElementById("doneList")) {
     list.innerHTML += listHTMl;
+  } else {
+    //  document.ulSecond.appendChild(this.closest("li"));
+    //  ulFirst.removeChild(target.closest("li"));
   }
 };
