@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="main-container">
-      <input type="text" name="" id="userInput" onkeydown="enterFunc(event)" />
+      <input type="text" name="" id="userInput" />
       <button id="btn-confirm">Confirm</button>
       <button id="btn-cancel">Cancel</button>
       <div id="lists">
@@ -17,10 +17,12 @@
           <h2>To Do !</h2>
           <ul id="first"></ul>
         </div>
-        <script type="text/template" id="templateDone">
+        <script type="text/html" id="templateDone">
           <div id="doneList">
-             <h2>Done &#10004;</h2>
-             <ul id="second"></ul>
+            <h2>Done &#10004;</h2>
+            <ul id="second">
+              <li>"{{newLi}}"</li>
+            </ul>
           </div>
         </script>
       </div>

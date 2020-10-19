@@ -1,5 +1,6 @@
 "use strict";
 
+let main = document.getElementById("main-container");
 let list = document.getElementById("lists");
 let input = document.getElementById("userInput");
 let toDo = document.getElementById("toDoList");
@@ -10,39 +11,48 @@ let cancel = document.getElementById("btn-cancel");
 let ulFirst = document.getElementById("first");
 let ulSecond = document.getElementById("second");
 let ulThird = document.getElementById("third");
-let checked = document.querySelectorAll(".checked");
-let templDone = document.getElementById("templateDone");
-// let btn-reject = document.getElementById("reject");
+let checked = document.getElementById("checkbox");
+var templateDone = document.getElementById("templateDone");
+var templDoneHTML = templateDone.innerHTML;
+var listHTMl = "";
+
+console.log(templateDone);
+console.log(templDoneHTML);
 
 function confirmFunc() {
   if (input != "" && input != null) {
     const newLi = document.createElement("li");
-    newLi.innerHTML = `${input.value}<input type="checkbox" onclick="this.parentNode.className += ' checked’” /><button class="reject">&#10007;</button>
-    `;
+    newLi.innerHTML = `<label>${input.value}<input type="checkbox" id="checkbox"/><button class="reject">&#10007;</button>
+    </label>`;
     ulFirst.appendChild(newLi);
     document.getElementById("userInput").value = "";
   }
 }
 
-function enterFunc(enter) {
-  var x = enter.keyCode;
-  if (x == 13) {
-    confirmFunc();
-  }
+function cancelFunc() {
+  document.getElementById("userInput").value = "";
 }
+
+input.addEventListener("keydown", (event) => {
+  switch (event.key) {
+    case "Enter":
+      confirmFunc();
+      break;
+    case "Escape":
+      cancelFunc();
+      break;
+  }
+});
 
 confirm.addEventListener("click", confirmFunc);
 
-cancel.addEventListener("click", () => {
-  document.getElementById("userInput").value = "";
-});
+cancel.addEventListener("click", cancelFunc);
 
 list.onclick = function transferToDone(event) {
   let target = event.target;
-  if (target.className != checked) return;
-  target.appendChild(done);
+  if (target.checked) {
+    listHTMl += templDoneHTML.replace("{{newLi}}", "this.li.closest");
+    document.getElementById(ulSecond).innerHTML = listHTMl;
+    //  document.ulSecond.appendChild(this.closest);
+  }
 };
-
-// function transferToRejected () {
-
-// }
